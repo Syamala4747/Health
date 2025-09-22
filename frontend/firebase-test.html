@@ -70,14 +70,14 @@
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
         import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'
 
-        // Your Firebase config (from .env)
+        // Your Firebase config (load from environment variables)
         const firebaseConfig = {
-            apiKey: "AIzaSyCDkFNc3NW8UIKKT2bpN2mfKovgdXb84YM",
-            authDomain: "health-436cf.firebaseapp.com",
-            projectId: "health-436cf",
-            storageBucket: "health-436cf.firebasestorage.app",
-            messagingSenderId: "310125092662",
-            appId: "1:310125092662:web:bcf1468916c1a4fad89d97"
+            apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+            authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+            projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+            storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+            messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+            appId: import.meta.env.VITE_FIREBASE_APP_ID
         }
 
         let app, auth, db;

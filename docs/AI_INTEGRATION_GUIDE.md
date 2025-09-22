@@ -19,7 +19,7 @@ This system integrates advanced AI capabilities to provide personalized mental h
 ### 2. Configure Environment
 ```bash
 # In your .env file, add:
-OPENAI_API_KEY=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
+OPENAI_API_KEY=your_openai_api_key_here
 OPENAI_MODEL=gpt-4
 OPENAI_MAX_TOKENS=800
 OPENAI_TEMPERATURE=0.7
