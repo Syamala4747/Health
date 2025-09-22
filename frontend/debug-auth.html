@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug ZenCare Authentication</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .clear-btn { background: #dc3545; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        .test-btn { background: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        .success { color: #28a745; }
+        .warning { color: #ffc107; }
+        .error { color: #dc3545; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔍 ZenCare Authentication Debug Tool</h1>
+    
+    <div class="section">
+        <h3>Current Authentication State</h3>
+        <div id="auth-state"></div>
+        <button class="test-btn" onclick="checkAuthState()">🔄 Refresh State</button>
+    </div>
+
+    <div class="section">
+        <h3>Session Storage</h3>
+        <div id="session-storage"></div>
+        <button class="clear-btn" onclick="clearSessionStorage()">🗑️ Clear Session Storage</button>
+    </div>
+
+    <div class="section">
+        <h3>Local Storage</h3>
+        <div id="local-storage"></div>
+        <button class="clear-btn" onclick="clearLocalStorage()">🗑️ Clear Local Storage</button>
+    </div>
+
+    <div class="section">
+        <h3>Actions</h3>
+        <button class="clear-btn" onclick="clearAllAuth()">🧹 Clear ALL Authentication Data</button>
+        <button class="test-btn" onclick="openApp()">🚀 Open ZenCare App</button>
+    </div>
+
+    <div class="section">
+        <h3>Debug Log</h3>
+        <div id="debug-log"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('debug-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'error' ? 'error' : type === 'warning' ? 'warning' : type === 'success' ? 'success' : '';
+            logDiv.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            console.log(`[${timestamp}] ${message}`);
+        }
+
+        function checkAuthState() {
+            log('Checking authentication state...', 'info');
+            
+            // Check fallback mode
+            const fallbackMode = sessionStorage.getItem('fallback_mode');
+            const fallbackUser = sessionStorage.getItem('fallback_user');
+            
+            let authInfo = '<h4>Authentication Status:</h4>';
+            
+            if (fallbackMode === 'true' && fallbackUser) {
+                const user = JSON.parse(fallbackUser);
+                authInfo += `<div class="error">❌ FALLBACK MODE ACTIVE - This is the problem!</div>`;
+                authInfo += `<div><strong>User:</strong> ${user.email}</div>`;
+                authInfo += `<div><strong>Role:</strong> ${user.role}</div>`;
+                authInfo += `<div><strong>Name:</strong> ${user.name}</div>`;
+                authInfo += `<div class="warning">⚠️ This explains why admin dashboard is auto-loading!</div>`;
+                log(`Found fallback user: ${user.email} with role: ${user.role}`, 'error');
+            } else {
+                authInfo += '<div class="success">✅ No fallback authentication found</div>';
+                log('No fallback authentication detected', 'success');
+            }
+
+            // Check for cached user roles
+            const userRoles = [];
+            for (let i = 0; i < sessionStorage.length; i++) {
+                const key = sessionStorage.key(i);
+                if (key && key.startsWith('userRole_')) {
+                    const role = sessionStorage.getItem(key);
+                    userRoles.push({ key, role });
+                }
+            }
+
+            if (userRoles.length > 0) {
+                authInfo += '<h4>Cached User Roles:</h4>';
+                userRoles.forEach(({ key, role }) => {
+                    authInfo += `<div><strong>${key}:</strong> ${role}</div>`;
+                    log(`Found cached role: ${key} = ${role}`, 'warning');
+                });
+            } else {
+                authInfo += '<div>No cached user roles found</div>';
+            }
+
+            document.getElementById('auth-state').innerHTML = authInfo;
+        }
+
+        function displaySessionStorage() {
+            const sessionDiv = document.getElementById('session-storage');
+            let html = '<h4>Session Storage Contents:</h4>';
+            
+            if (sessionStorage.length === 0) {
+                html += '<div class="success">✅ Empty</div>';
+            } else {
+                html += '<pre>';
+                for (let i = 0; i < sessionStorage.length; i++) {
+                    const key = sessionStorage.key(i);
+                    const value = sessionStorage.getItem(key);
+                    html += `${key}: ${value}\n`;
+                }
+                html += '</pre>';
+            }
+            sessionDiv.innerHTML = html;
+        }
+
+        function displayLocalStorage() {
+            const localDiv = document.getElementById('local-storage');
+            let html = '<h4>Local Storage Contents:</h4>';
+            
+            if (localStorage.length === 0) {
+                html += '<div class="success">✅ Empty</div>';
+            } else {
+                html += '<pre>';
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    const value = localStorage.getItem(key);
+                    html += `${key}: ${value.substring(0, 100)}${value.length > 100 ? '...' : ''}\n`;
+                }
+                html += '</pre>';
+            }
+            localDiv.innerHTML = html;
+        }
+
+        function clearSessionStorage() {
+            log('Clearing session storage...', 'info');
+            sessionStorage.clear();
+            log('✅ Session storage cleared!', 'success');
+            displaySessionStorage();
+            checkAuthState();
+        }
+
+        function clearLocalStorage() {
+            log('Clearing local storage...', 'info');
+            localStorage.clear();
+            log('✅ Local storage cleared!', 'success');
+            displayLocalStorage();
+        }
+
+        function clearAllAuth() {
+            log('Clearing ALL authentication data...', 'info');
+            
+            // Clear fallback auth
+            sessionStorage.removeItem('fallback_user');
+            sessionStorage.removeItem('fallback_mode');
+            log('Cleared fallback authentication', 'info');
+            
+            // Clear cached user roles
+            const keys = Object.keys(sessionStorage);
+            keys.forEach(key => {
+                if (key.startsWith('userRole_')) {
+                    sessionStorage.removeItem(key);
+                    log(`Cleared cached role: ${key}`, 'info');
+                }
+            });
+            
+            // Clear Firebase auth data
+            const localKeys = Object.keys(localStorage);
+            localKeys.forEach(key => {
+                if (key.includes('firebase') || key.includes('auth')) {
+                    localStorage.removeItem(key);
+                    log(`Cleared Firebase data: ${key}`, 'info');
+                }
+            });
+            
+            log('🧹 ALL authentication data cleared!', 'success');
+            displaySessionStorage();
+            displayLocalStorage();
+            checkAuthState();
+        }
+
+        function openApp() {
+            log('Opening ZenCare app...', 'info');
+            window.open('http://localhost:3002', '_blank');
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            checkAuthState();
+            displaySessionStorage();
+            displayLocalStorage();
+            log('Debug tool initialized', 'info');
+        };
+    </script>
+</body>
+</html>

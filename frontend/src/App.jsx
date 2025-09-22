@@ -88,29 +88,39 @@ const UserRedirect = () => {
 }
 
 function App() {
-  const { user } = useAuth()
+  const { user, loading } = useAuth()
+
+  // Show loading screen while auth is being determined
+  if (loading) {
+    return <LoadingScreen message="Loading application..." showProgress={true} />
+  }
 
   return (
     <Routes>
       <Route
         path="/login"
-        element={user ? <UserRedirect /> : <LoginPage />}
+        element={<LoginPage />}
       />
       <Route
         path="/register"
-        element={user ? <UserRedirect /> : <RegisterPage />}
+        element={<RegisterPage />}
       />
       <Route
         path="/register/college-head"
-        element={user ? <UserRedirect /> : <CollegeHeadRegistration />}
+        element={<CollegeHeadRegistration />}
       />
       <Route
         path="/register/counselor"
-        element={user ? <UserRedirect /> : <CounselorRegistration />}
+        element={<CounselorRegistration />}
       />
 
 
 
+
+      {/* Protected Dashboard Routes - Only accessible after login */}
+      <Route path="/dashboard" element={
+        user ? <UserRedirect /> : <Navigate to="/login" replace />
+      } />
 
       {/* Admin Routes - Simplified for College Head Management Only */}
       <Route path="/admin" element={
@@ -274,10 +284,8 @@ function App() {
         } />
       </Route>
 
-      {/* Default redirect based on authentication */}
-      <Route path="/" element={
-        user ? <UserRedirect /> : <Navigate to="/login" replace />
-      } />
+      {/* Default redirect - ALWAYS go to login first */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
 
       <Route path="/unauthorized" element={
         <div style={{ textAlign: 'center', marginTop: '50px' }}>

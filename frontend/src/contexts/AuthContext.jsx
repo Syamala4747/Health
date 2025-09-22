@@ -27,20 +27,29 @@ export const AuthProvider = ({ children }) => {
   const [isFallbackMode, setIsFallbackMode] = useState(false)
 
   useEffect(() => {
-    // Check for fallback mode on app start
-    if (fallbackAuth.isFallbackMode()) {
-      const fallbackUser = fallbackAuth.getCurrentUser()
-      if (fallbackUser) {
-        setUser({ uid: fallbackUser.uid, email: fallbackUser.email })
-        setUserRole(fallbackUser.role)
-        setUserExists(true)
-        setUserApproved(true)
-        setIsFallbackMode(true)
-        setLoading(false)
-        console.log('📴 Restored fallback authentication session')
-        return
+    // Clear any problematic cached data on app start
+    const initializeAuth = async () => {
+      console.log('🔄 Initializing authentication...')
+      
+      // Clear fallback auth if it exists (prevents auto-admin login)
+      if (fallbackAuth.isFallbackMode()) {
+        console.log('🧹 Clearing fallback authentication...')
+        fallbackAuth.logout()
       }
+      
+      // Clear any cached user roles that might be stale
+      const keys = Object.keys(sessionStorage)
+      keys.forEach(key => {
+        if (key.startsWith('userRole_')) {
+          sessionStorage.removeItem(key)
+          console.log('🗑️ Cleared cached role:', key)
+        }
+      })
+      
+      console.log('✅ Auth initialization complete')
     }
+    
+    initializeAuth()
 
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user)

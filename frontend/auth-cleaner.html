@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZenCare Auth Cleaner</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .button { background: #dc3545; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px; }
+        .success { background: #28a745; }
+        .info { background: #17a2b8; }
+        .result { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px; }
+    </style>
+</head>
+<body>
+    <h1>🧹 ZenCare Authentication Cleaner</h1>
+    <p>Use this tool to clear all authentication data if you're experiencing auto-login issues.</p>
+    
+    <button class="button" onclick="clearAllAuth()">🗑️ Clear All Authentication</button>
+    <button class="button info" onclick="checkAuthStatus()">🔍 Check Current Status</button>
+    <button class="button success" onclick="openApp()">🚀 Open ZenCare App</button>
+    
+    <div class="result" id="result">
+        <p>Click "Check Current Status" to see authentication state.</p>
+    </div>
+
+    <script>
+        function clearAllAuth() {
+            document.getElementById('result').innerHTML = '<p>🧹 Clearing authentication data...</p>';
+            
+            let cleared = [];
+            
+            // Clear fallback authentication
+            if (sessionStorage.getItem('fallback_mode') === 'true') {
+                cleared.push('✅ Cleared fallback authentication');
+                sessionStorage.removeItem('fallback_mode');
+                sessionStorage.removeItem('fallback_user');
+            }
+            
+            // Clear cached user roles
+            const sessionKeys = Object.keys(sessionStorage);
+            sessionKeys.forEach(key => {
+                if (key.startsWith('userRole_')) {
+                    sessionStorage.removeItem(key);
+                    cleared.push(`✅ Cleared cached role: ${key}`);
+                }
+            });
+            
+            // Clear Firebase auth data from localStorage
+            const localKeys = Object.keys(localStorage);
+            localKeys.forEach(key => {
+                if (key.includes('firebase') || key.includes('auth')) {
+                    localStorage.removeItem(key);
+                    cleared.push(`✅ Cleared Firebase data: ${key.substring(0, 30)}...`);
+                }
+            });
+            
+            // Clear all session storage as final cleanup
+            sessionStorage.clear();
+            cleared.push('✅ Cleared all session storage');
+            
+            if (cleared.length === 0) {
+                document.getElementById('result').innerHTML = '<p style="color: green;">✅ No authentication data found to clear. You\'re all clean!</p>';
+            } else {
+                document.getElementById('result').innerHTML = `
+                    <h3 style="color: green;">✅ Authentication Cleared Successfully!</h3>
+                    <ul>
+                        ${cleared.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                    <p><strong>Next steps:</strong></p>
+                    <ol>
+                        <li>Close all ZenCare browser tabs</li>
+                        <li>Click "Open ZenCare App" below</li>
+                        <li>You should see the login page</li>
+                    </ol>
+                `;
+            }
+        }
+        
+        function checkAuthStatus() {
+            let status = [];
+            
+            // Check fallback mode
+            if (sessionStorage.getItem('fallback_mode') === 'true') {
+                const user = JSON.parse(sessionStorage.getItem('fallback_user') || '{}');
+                status.push(`❌ Fallback mode ACTIVE - User: ${user.email || 'unknown'} (Role: ${user.role || 'unknown'})`);
+            } else {
+                status.push('✅ No fallback authentication');
+            }
+            
+            // Check cached roles
+            const roleCount = Object.keys(sessionStorage).filter(key => key.startsWith('userRole_')).length;
+            if (roleCount > 0) {
+                status.push(`⚠️ Found ${roleCount} cached user roles`);
+            } else {
+                status.push('✅ No cached user roles');
+            }
+            
+            // Check localStorage
+            const firebaseKeys = Object.keys(localStorage).filter(key => key.includes('firebase') || key.includes('auth'));
+            if (firebaseKeys.length > 0) {
+                status.push(`⚠️ Found ${firebaseKeys.length} Firebase auth entries`);
+            } else {
+                status.push('✅ No Firebase auth data in localStorage');
+            }
+            
+            document.getElementById('result').innerHTML = `
+                <h3>🔍 Current Authentication Status:</h3>
+                <ul>
+                    ${status.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <p><strong>Recommendation:</strong> ${status.some(s => s.includes('❌') || s.includes('⚠️')) ? 'Clear authentication data above.' : 'Authentication state looks clean!'}</p>
+            `;
+        }
+        
+        function openApp() {
+            window.open('http://localhost:3000', '_blank');
+        }
+        
+        // Check status on page load
+        window.onload = checkAuthStatus;
+    </script>
+</body>
+</html>
