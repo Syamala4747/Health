@@ -149,9 +149,10 @@ export default function LoginPage() {
       
       const user = await login(email, password)
       toast.success('Login successful! Redirecting...')
-      console.log('🎯 Login completed, App.jsx will handle navigation...')
+      console.log('🎯 Login completed, redirecting to dashboard...')
       
-      // Don't navigate manually - let App.jsx handle the redirect
+      // Explicit redirect to dashboard which will then determine role
+      navigate('/dashboard')
       } catch (error) {
       let errorMessage = 'Failed to login. Please check your credentials.'
       
