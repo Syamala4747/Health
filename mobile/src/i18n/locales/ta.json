@@ -1,0 +1,54 @@
+{
+  "app": {
+    "name": "ஜென்கேர்",
+    "welcome": "ஜென்கேர்க்கு வரவேற்கிறோம்",
+    "subtitle": "உங்கள் மன நலத் துணை"
+  },
+  "dashboard": {
+    "yourWellnessJourney": "உங்கள் நல்வாழ்வு பயணம்",
+    "knowYourHealth": "உங்கள் ஆரோக்கியத்தை அறியுங்கள்",
+    "takeAssessments": "மன நல மதிப்பீடுகளை எடுத்துக்கொள்ளுங்கள்",
+    "aiCounsellor": "AI ஆலோசகர்",
+    "chatWithAI": "எங்கள் AI நல்வாழ்வு துணையுடன் அரட்டையடியுங்கள்",
+    "humanCounsellor": "மனித ஆலோசகர்",
+    "connectProfessional": "தொழில்முறை ஆலோசகர்களுடன் இணையுங்கள்",
+    "resourceHub": "வள மையம்",
+    "articlesVideos": "கட்டுரைகள், வீடியோக்கள் மற்றும் நல்வாழ்வு கருவிகள்"
+  },
+  "auth": {
+    "login": "உள்நுழைவு",
+    "register": "பதிவு",
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல்",
+    "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+    "fullName": "முழு பெயர்",
+    "forgotPassword": "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
+    "dontHaveAccount": "கணக்கு இல்லையா?",
+    "alreadyHaveAccount": "ஏற்கனவே கணக்கு உள்ளதா?",
+    "signUp": "பதிவு செய்யுங்கள்",
+    "signIn": "உள்நுழையுங்கள்",
+    "student": "மாணவர்",
+    "counsellor": "ஆலோசகர்",
+    "selectRole": "உங்கள் பாத்திரத்தைத் தேர்ந்தெடுக்கவும்"
+  },
+  "emergency": {
+    "needHelp": "உடனடி உதவி தேவையா?",
+    "crisisResources": "நெருக்கடி வளங்கள்",
+    "emergencyContacts": "அவசர தொடர்புகள்",
+    "nationalSuicideHotline": "தேசிய தற்கொலை தடுப்பு ஹாட்லைன்",
+    "crisisTextLine": "நெருக்கடி உரை வரி",
+    "emergencyServices": "அவசர சேவைகள்"
+  },
+  "common": {
+    "loading": "ஏற்றுகிறது...",
+    "error": "பிழை",
+    "success": "வெற்றி",
+    "cancel": "ரத்து செய்",
+    "ok": "சரி",
+    "yes": "ஆம்",
+    "no": "இல்லை",
+    "save": "சேமி",
+    "edit": "திருத்து",
+    "delete": "நீக்கு"
+  }
+}

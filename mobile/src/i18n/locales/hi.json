@@ -1,0 +1,54 @@
+{
+  "app": {
+    "name": "ज़ेनकेयर",
+    "welcome": "ज़ेनकेयर में आपका स्वागत है",
+    "subtitle": "आपका मानसिक स्वास्थ्य साथी"
+  },
+  "dashboard": {
+    "yourWellnessJourney": "आपकी कल्याण यात्रा",
+    "knowYourHealth": "अपने स्वास्थ्य को जानें",
+    "takeAssessments": "मानसिक स्वास्थ्य मूल्यांकन लें",
+    "aiCounsellor": "AI काउंसलर",
+    "chatWithAI": "हमारे AI कल्याण साथी से चैट करें",
+    "humanCounsellor": "मानव काउंसलर",
+    "connectProfessional": "पेशेवर काउंसलर से जुड़ें",
+    "resourceHub": "संसाधन केंद्र",
+    "articlesVideos": "लेख, वीडियो और कल्याण उपकरण"
+  },
+  "auth": {
+    "login": "लॉगिन",
+    "register": "पंजीकरण",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "fullName": "पूरा नाम",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "dontHaveAccount": "खाता नहीं है?",
+    "alreadyHaveAccount": "पहले से खाता है?",
+    "signUp": "साइन अप",
+    "signIn": "साइन इन",
+    "student": "छात्र",
+    "counsellor": "काउंसलर",
+    "selectRole": "अपनी भूमिका चुनें"
+  },
+  "emergency": {
+    "needHelp": "तत्काल सहायता चाहिए?",
+    "crisisResources": "संकट संसाधन",
+    "emergencyContacts": "आपातकालीन संपर्क",
+    "nationalSuicideHotline": "राष्ट्रीय आत्महत्या रोकथाम हॉटलाइन",
+    "crisisTextLine": "संकट टेक्स्ट लाइन",
+    "emergencyServices": "आपातकालीन सेवाएं"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "cancel": "रद्द करें",
+    "ok": "ठीक है",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "save": "सेव करें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं"
+  }
+}

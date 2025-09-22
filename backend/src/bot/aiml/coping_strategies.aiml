@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    <!-- Breathing exercises -->
+    <category>
+        <pattern>BREATHING EXERCISE</pattern>
+        <template>Let's try a simple breathing exercise together. This is called the 4-7-8 technique:
+        
+1. Breathe in through your nose for 4 counts
+2. Hold your breath for 7 counts  
+3. Exhale through your mouth for 8 counts
+4. Repeat 3-4 times
+
+Take your time with each step. Are you ready to try this with me?</template>
+    </category>
+    
+    <category>
+        <pattern>HELP ME RELAX</pattern>
+        <template>I'd be happy to help you relax. Here's a quick progressive muscle relaxation technique:
+
+1. Start with your toes - tense them for 5 seconds, then relax
+2. Move to your calves - tense and relax
+3. Continue up through your thighs, abdomen, arms, and face
+4. Take deep breaths throughout
+
+This helps release physical tension. Would you like me to guide you through this step by step?</template>
+    </category>
+    
+    <!-- Mindfulness techniques -->
+    <category>
+        <pattern>MINDFULNESS</pattern>
+        <template>Mindfulness can be very helpful for managing stress and anxiety. Here's a simple 5-4-3-2-1 grounding technique:
+
+- 5 things you can see
+- 4 things you can touch
+- 3 things you can hear
+- 2 things you can smell
+- 1 thing you can taste
+
+This helps bring you back to the present moment. Would you like to try this now?</template>
+    </category>
+    
+    <category>
+        <pattern>MEDITATION</pattern>
+        <template>Meditation is a wonderful practice for mental wellness. For beginners, I recommend starting with just 5 minutes a day:
+
+1. Find a quiet, comfortable spot
+2. Close your eyes or soften your gaze
+3. Focus on your breath
+4. When your mind wanders, gently return to your breath
+5. Be patient and kind with yourself
+
+Would you like some guided meditation resources from our wellness library?</template>
+    </category>
+    
+    <!-- Self-care strategies -->
+    <category>
+        <pattern>SELF CARE</pattern>
+        <template>Self-care is essential for mental health. Here are some ideas:
+
+Physical: Regular exercise, healthy eating, adequate sleep
+Emotional: Journaling, talking to friends, practicing gratitude
+Mental: Reading, learning something new, limiting negative media
+Social: Connecting with loved ones, joining groups, volunteering
+Spiritual: Meditation, nature walks, practicing mindfulness
+
+Which area would you like to focus on?</template>
+    </category>
+    
+    <category>
+        <pattern>EXERCISE</pattern>
+        <template>Exercise is one of the most effective ways to improve mental health! It releases endorphins and reduces stress hormones. You don't need intense workouts - even a 10-minute walk can help.
+
+Some options:
+- Walking or jogging
+- Dancing to your favorite music
+- Yoga or stretching
+- Swimming
+- Playing sports
+
+What type of physical activity do you enjoy or would like to try?</template>
+    </category>
+    
+    <!-- Sleep hygiene -->
+    <category>
+        <pattern>SLEEP BETTER</pattern>
+        <template>Good sleep is crucial for mental health. Here are some sleep hygiene tips:
+
+1. Keep a consistent sleep schedule
+2. Create a relaxing bedtime routine
+3. Avoid screens 1 hour before bed
+4. Keep your bedroom cool, dark, and quiet
+5. Avoid caffeine late in the day
+6. Try relaxation techniques before bed
+
+Which of these areas would you like to work on first?</template>
+    </category>
+    
+    <!-- Stress management -->
+    <category>
+        <pattern>MANAGE STRESS</pattern>
+        <template>Stress management is a skill that improves with practice. Here are some effective techniques:
+
+Immediate relief:
+- Deep breathing exercises
+- Progressive muscle relaxation
+- Take a short walk
+- Listen to calming music
+
+Long-term strategies:
+- Regular exercise
+- Time management
+- Setting boundaries
+- Building support networks
+
+What type of stress are you dealing with most?</template>
+    </category>
+    
+    <!-- Social support -->
+    <category>
+        <pattern>FEEL LONELY</pattern>
+        <template>Loneliness is more common than you might think, especially among students. Here are some ways to build connections:
+
+1. Reach out to old friends
+2. Join clubs or groups with shared interests
+3. Volunteer for causes you care about
+4. Take classes or workshops
+5. Use our counselor matching service
+6. Practice small social interactions daily
+
+Remember, quality matters more than quantity in relationships. Would you like help finding social activities or support groups?</template>
+    </category>
+    
+    <!-- Academic stress -->
+    <category>
+        <pattern>ACADEMIC STRESS</pattern>
+        <template>Academic stress is very common among students. Here are some strategies:
+
+Time management:
+- Use a planner or calendar
+- Break large tasks into smaller ones
+- Set realistic goals
+- Take regular breaks
+
+Study techniques:
+- Find your optimal study environment
+- Use active learning methods
+- Form study groups
+- Seek help when needed
+
+Self-care:
+- Maintain work-life balance
+- Get enough sleep
+- Exercise regularly
+- Practice stress-reduction techniques
+
+What aspect of academic life is causing you the most stress?</template>
+    </category>
+
+</aiml>

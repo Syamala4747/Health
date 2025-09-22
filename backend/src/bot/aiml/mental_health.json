@@ -1,0 +1,109 @@
+{
+  "anxiety": {
+    "responses": [
+      "I understand that anxiety can feel overwhelming. You're not alone in this. Would you like to try some breathing exercises or talk about what's making you anxious?",
+      "Anxiety is very common, and it's brave of you to acknowledge it. What specific situations or thoughts tend to trigger your anxiety?",
+      "I hear that you're experiencing anxiety. That must be difficult. Let's explore some ways to help you feel more grounded right now."
+    ],
+    "suggestions": ["Breathing exercises", "Talk about triggers", "Coping strategies", "Take GAD-7 assessment"]
+  },
+  "anxious": {
+    "responses": [
+      "Feeling anxious is your mind's way of trying to protect you, but I know it doesn't feel helpful right now. What's been on your mind lately?",
+      "I'm sorry you're feeling anxious. Sometimes it helps to name what we're worried about. Would you like to share what's concerning you?"
+    ],
+    "suggestions": ["Share my worries", "Grounding techniques", "Relaxation methods", "Talk to counsellor"]
+  },
+  "depression": {
+    "responses": [
+      "Thank you for sharing that with me. Depression can make everything feel more difficult, but you've taken an important step by reaching out.",
+      "I'm sorry you're going through this. Depression affects many people, and seeking support shows real strength. How have you been feeling lately?",
+      "Depression can feel isolating, but you're not alone. I'm here to listen and support you through this."
+    ],
+    "suggestions": ["Tell me more", "Take PHQ-9 assessment", "Find professional help", "Self-care activities"]
+  },
+  "depressed": {
+    "responses": [
+      "I'm glad you felt comfortable sharing that with me. Feeling depressed is painful, and I want you to know that your feelings are valid.",
+      "Depression can make even simple tasks feel overwhelming. You're being very brave by talking about it. What has been the hardest part for you?"
+    ],
+    "suggestions": ["Daily struggles", "Professional support", "Mood tracking", "Support groups"]
+  },
+  "sad": {
+    "responses": [
+      "I'm sorry you're feeling sad. Sadness is a natural human emotion, but that doesn't make it any less difficult to experience. What's been weighing on your heart?",
+      "It's okay to feel sad sometimes. Would you like to talk about what's making you feel this way, or would you prefer some comfort and support right now?"
+    ],
+    "suggestions": ["Share what's wrong", "Comfort and support", "Mood lifting activities", "Talk to someone"]
+  },
+  "stress": {
+    "responses": [
+      "Stress can really impact our wellbeing. It sounds like you have a lot on your plate right now. What's been causing you the most stress lately?",
+      "I hear that you're feeling stressed. Let's talk about some ways to manage it. What are the main sources of stress in your life right now?"
+    ],
+    "suggestions": ["Work stress", "School pressure", "Relationship issues", "Stress management techniques"]
+  },
+  "stressed": {
+    "responses": [
+      "Feeling stressed is your body's response to pressure, but chronic stress can be exhausting. What's been overwhelming you lately?",
+      "I understand that you're feeling stressed. Sometimes it helps to break down what's causing the stress. Would you like to talk through it?"
+    ],
+    "suggestions": ["Break down problems", "Relaxation techniques", "Time management", "Set boundaries"]
+  },
+  "overwhelmed": {
+    "responses": [
+      "Feeling overwhelmed can be paralyzing. You're not alone in feeling this way. Sometimes it helps to focus on just one small thing at a time.",
+      "When everything feels like too much, it's important to be gentle with yourself. What feels most urgent or important to you right now?"
+    ],
+    "suggestions": ["One thing at a time", "Prioritize tasks", "Ask for help", "Take a break"]
+  },
+  "panic": {
+    "responses": [
+      "Panic attacks can be very frightening, but they are not dangerous and they will pass. Let's focus on your breathing right now. Can you try breathing slowly with me?",
+      "I understand you're experiencing panic. You're safe right now. Let's try some grounding techniques together. Can you name 5 things you can see around you?"
+    ],
+    "suggestions": ["Breathing exercise", "Grounding technique", "Call someone", "Emergency resources"]
+  },
+  "lonely": {
+    "responses": [
+      "Feeling lonely can be really painful, even when you're surrounded by people. I'm here with you right now. You're not as alone as you might feel.",
+      "Loneliness is one of the most difficult emotions to bear. I want you to know that your feelings matter, and you deserve connection and support."
+    ],
+    "suggestions": ["Connect with others", "Join support groups", "Reach out to friends", "Talk to counsellor"]
+  },
+  "scared": {
+    "responses": [
+      "It takes courage to admit when we're scared. I'm here to support you. What's been frightening you?",
+      "Feeling scared is completely valid. You're safe here with me. Would you like to talk about what's making you feel afraid?"
+    ],
+    "suggestions": ["Share my fears", "Safety planning", "Coping strategies", "Professional help"]
+  },
+  "angry": {
+    "responses": [
+      "Anger is a valid emotion, and it often tells us that something important to us has been threatened or hurt. What's been making you feel angry?",
+      "I hear that you're feeling angry. Sometimes anger can mask other emotions like hurt or frustration. Would you like to explore what's underneath the anger?"
+    ],
+    "suggestions": ["Talk about it", "Anger management", "Healthy outlets", "Communication skills"]
+  },
+  "hopeless": {
+    "responses": [
+      "Feeling hopeless is incredibly painful, but I want you to know that these feelings can change. You matter, and there are people who want to help you.",
+      "When we feel hopeless, it can seem like things will never get better. But hope can return, even when it feels impossible right now. You're not alone in this."
+    ],
+    "suggestions": ["Crisis support", "Professional help", "Talk to counsellor", "Emergency contacts"]
+  },
+  "worthless": {
+    "responses": [
+      "I'm sorry you're feeling this way about yourself. Those thoughts are symptoms of what you're going through, not facts about who you are. You have inherent worth.",
+      "Feeling worthless is a common symptom of depression, but it doesn't reflect your true value. You matter, and your life has meaning."
+    ],
+    "suggestions": ["Challenge negative thoughts", "Self-compassion", "Professional support", "Crisis resources"]
+  },
+  "tired": {
+    "responses": [
+      "Being tired all the time can be exhausting in itself. Are you getting enough sleep, or is this a deeper kind of tiredness?",
+      "Fatigue can be both physical and emotional. Sometimes our minds get tired from carrying heavy feelings. How long have you been feeling this way?"
+    ],
+    "suggestions": ["Sleep hygiene", "Energy management", "Check with doctor", "Mental health support"]
+  }
+}

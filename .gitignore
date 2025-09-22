@@ -1,0 +1,229 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output/
+
+# Grunt intermediate storage
+.grunt/
+
+# Bower dependency directory
+bower_components/
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release/
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache/
+.parcel-cache/
+
+# Next.js build output
+.next/
+
+# Nuxt.js build / generate output
+.nuxt/
+dist/
+
+# Gatsby files
+.cache/
+public/
+
+# Vite build output
+dist/
+
+# Svelte build output
+/build/
+
+# React build output
+build/
+
+# Storybook build outputs
+.out/
+.storybook-out/
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# Firebase Admin SDK private key
+firebase-adminsdk-*.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+Dockerfile.dev
+docker-compose.override.yml
+
+# Mobile specific
+mobile/android/app/build/
+mobile/ios/build/
+mobile/.expo/
+mobile/dist/
+mobile/tmp/
+mobile/out-tsc/
+mobile/bazel-out/
+
+# React Native
+mobile/ios/Pods/
+mobile/android/.gradle/
+mobile/android/app/build/
+mobile/android/build/
+mobile/android/gradle/
+mobile/android/gradlew
+mobile/android/gradlew.bat
+mobile/android/local.properties
+
+# Expo
+mobile/.expo/
+mobile/dist/
+mobile/npm-debug.*
+mobile/*.jks
+mobile/*.p8
+mobile/*.p12
+mobile/*.key
+mobile/*.mobileprovision
+mobile/*.orig.*
+mobile/web-build/
+
+# AI Services specific
+ai-services/models/
+ai-services/weights/
+ai-services/__pycache__/
+ai-services/*.pyc
+ai-services/venv/
+ai-services/.venv/
+
+# Backend specific
+backend/uploads/
+backend/temp/
+
+# Security
+*.pem
+*.key
+*.crt
+*.csr
+config/production.json
+config/secrets.json
+
+# Package lock files (choose one based on your preference)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# IDE and Editor files
+*.sublime-workspace
+*.sublime-project
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Testing
+coverage/
+*.lcov
+.coverage
+htmlcov/
+.pytest_cache/
+.coverage.*
+
+# Misc
+*.tar.gz
+*.zip
+*.rar
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?

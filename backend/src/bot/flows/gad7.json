@@ -1,0 +1,136 @@
+{
+  "name": "GAD-7 Anxiety Assessment",
+  "description": "Generalized Anxiety Disorder 7-item scale",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Over the last 2 weeks, how often have you been bothered by feeling nervous, anxious, or on edge?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Over the last 2 weeks, how often have you been bothered by not being able to stop or control worrying?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Over the last 2 weeks, how often have you been bothered by worrying too much about different things?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Over the last 2 weeks, how often have you been bothered by trouble relaxing?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Over the last 2 weeks, how often have you been bothered by being so restless that it is hard to sit still?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Over the last 2 weeks, how often have you been bothered by becoming easily annoyed or irritable?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Over the last 2 weeks, how often have you been bothered by feeling afraid, as if something awful might happen?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    }
+  ],
+  "scoring": {
+    "ranges": [
+      {
+        "min": 0,
+        "max": 4,
+        "severity": "Minimal",
+        "description": "Minimal anxiety symptoms",
+        "recommendations": [
+          "Continue with regular self-care practices",
+          "Practice relaxation techniques when needed",
+          "Maintain healthy lifestyle habits"
+        ]
+      },
+      {
+        "min": 5,
+        "max": 9,
+        "severity": "Mild",
+        "description": "Mild anxiety symptoms",
+        "recommendations": [
+          "Consider stress management techniques",
+          "Practice deep breathing exercises",
+          "Try mindfulness or meditation",
+          "Consider talking to a counselor"
+        ]
+      },
+      {
+        "min": 10,
+        "max": 14,
+        "severity": "Moderate",
+        "description": "Moderate anxiety symptoms",
+        "recommendations": [
+          "Consider professional counseling",
+          "Book a session with one of our counselors",
+          "Learn anxiety management techniques",
+          "Consider therapy or medication consultation"
+        ]
+      },
+      {
+        "min": 15,
+        "max": 21,
+        "severity": "Severe",
+        "description": "Severe anxiety symptoms",
+        "recommendations": [
+          "Seek professional help immediately",
+          "Consider medication evaluation",
+          "Book urgent counseling session",
+          "Practice grounding techniques for immediate relief"
+        ]
+      }
+    ]
+  },
+  "crisisKeywords": [
+    "panic attack",
+    "can't breathe",
+    "heart racing",
+    "going crazy",
+    "losing control",
+    "overwhelming fear"
+  ]
+}

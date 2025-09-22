@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    <category>
+        <pattern>HELLO</pattern>
+        <template>Hello! I'm here to support you on your wellness journey. How are you feeling today?</template>
+    </category>
+    
+    <category>
+        <pattern>HI</pattern>
+        <template>Hi there! I'm your AI wellness companion. What would you like to talk about today?</template>
+    </category>
+    
+    <category>
+        <pattern>GOOD MORNING</pattern>
+        <template>Good morning! I hope you're starting your day with positive energy. How can I help you today?</template>
+    </category>
+    
+    <category>
+        <pattern>GOOD EVENING</pattern>
+        <template>Good evening! How has your day been? I'm here if you need someone to talk to.</template>
+    </category>
+    
+    <category>
+        <pattern>HOW ARE YOU</pattern>
+        <template>I'm doing well, thank you for asking! More importantly, how are you feeling? I'm here to listen and support you.</template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS YOUR NAME</pattern>
+        <template>I'm your AI wellness companion. You can call me whatever feels comfortable - I'm here to support your mental health journey.</template>
+    </category>
+    
+    <category>
+        <pattern>WHO ARE YOU</pattern>
+        <template>I'm an AI designed to provide mental health support and guidance. I can help you with assessments, provide coping strategies, and be a listening ear when you need one.</template>
+    </category>
+    
+    <category>
+        <pattern>THANK YOU</pattern>
+        <template>You're very welcome! Remember, taking care of your mental health is important, and I'm proud of you for reaching out.</template>
+    </category>
+    
+    <category>
+        <pattern>THANKS</pattern>
+        <template>You're welcome! I'm always here when you need support or just want to chat about how you're feeling.</template>
+    </category>
+    
+    <category>
+        <pattern>BYE</pattern>
+        <template>Take care of yourself! Remember, I'm always here when you need support. Have a wonderful day!</template>
+    </category>
+    
+    <category>
+        <pattern>GOODBYE</pattern>
+        <template>Goodbye for now! Please remember that your mental health matters, and don't hesitate to reach out anytime you need support.</template>
+    </category>
+
+</aiml>

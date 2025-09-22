@@ -1,0 +1,161 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function getUserRole() {
+      return request.auth.token.role;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+    
+    function isCounsellor() {
+      return isAuthenticated() && getUserRole() == 'counsellor';
+    }
+    
+    function isStudent() {
+      return isAuthenticated() && getUserRole() == 'student';
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isApproved() {
+      return request.auth.token.approved == true;
+    }
+    
+    function isNotBlocked() {
+      return request.auth.token.blocked != true;
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      // Users can read/write their own profile
+      allow read, write: if isOwner(userId) && isNotBlocked();
+      
+      // Admins can read/write all user profiles
+      allow read, write: if isAdmin();
+      
+      // Counsellors can read student profiles (for their sessions)
+      allow read: if isCounsellor() && isApproved() && isNotBlocked();
+      
+      // Students can read counsellor profiles (for booking)
+      allow read: if isStudent() && resource.data.role == 'counsellor' && 
+                     resource.data.approved == true && isNotBlocked();
+    }
+    
+    // Resources collection (articles, videos, etc.)
+    match /resources/{resourceId} {
+      // All authenticated users can read resources
+      allow read: if isAuthenticated() && isNotBlocked();
+      
+      // Only admins can create/update/delete resources
+      allow write: if isAdmin();
+    }
+    
+    // Sessions collection
+    match /sessions/{sessionId} {
+      // Participants and admins can read/write sessions
+      allow read, write: if isAuthenticated() && isNotBlocked() && 
+        (resource.data.studentId == request.auth.uid || 
+         resource.data.counsellorId == request.auth.uid ||
+         isAdmin());
+      
+      // Allow creation if user is student or counsellor
+      allow create: if isAuthenticated() && isNotBlocked() && 
+        (isStudent() || (isCounsellor() && isApproved()));
+    }
+    
+    // Messages within sessions
+    match /sessions/{sessionId}/messages/{messageId} {
+      // Session participants can read/write messages
+      allow read, write: if isAuthenticated() && isNotBlocked() && 
+        (get(/databases/$(database)/documents/sessions/$(sessionId)).data.studentId == request.auth.uid ||
+         get(/databases/$(database)/documents/sessions/$(sessionId)).data.counsellorId == request.auth.uid ||
+         isAdmin());
+    }
+    
+    // Reports collection
+    match /reports/{reportId} {
+      // Users can read their own reports, admins can read all
+      allow read: if isAuthenticated() && 
+        (resource.data.reporterId == request.auth.uid || isAdmin());
+      
+      // Any authenticated user can create reports
+      allow create: if isAuthenticated() && isNotBlocked();
+      
+      // Only admins can update reports (change status, add notes)
+      allow update: if isAdmin();
+      
+      // Only admins can delete reports
+      allow delete: if isAdmin();
+    }
+    
+    // Assessments collection (PHQ-9, GAD-7 results)
+    match /assessments/{assessmentId} {
+      // Users can read/write their own assessments
+      allow read, write: if isAuthenticated() && isNotBlocked() && 
+        resource.data.userId == request.auth.uid;
+      
+      // Admins can read all assessments
+      allow read: if isAdmin();
+      
+      // Counsellors can read assessments of their students
+      allow read: if isCounsellor() && isApproved() && isNotBlocked();
+    }
+    
+    // Bookings collection
+    match /bookings/{bookingId} {
+      // Students and counsellors involved in booking can read/write
+      allow read, write: if isAuthenticated() && isNotBlocked() && 
+        (resource.data.studentId == request.auth.uid || 
+         resource.data.counsellorId == request.auth.uid ||
+         isAdmin());
+      
+      // Students can create bookings
+      allow create: if isStudent() && isNotBlocked();
+      
+      // Counsellors can update booking status
+      allow update: if isCounsellor() && isApproved() && isNotBlocked() &&
+        resource.data.counsellorId == request.auth.uid;
+    }
+    
+    // Chat history and analytics (admin only)
+    match /analytics/{document=**} {
+      allow read, write: if isAdmin();
+    }
+    
+    // System logs (admin only)
+    match /logs/{document=**} {
+      allow read, write: if isAdmin();
+    }
+    
+    // Crisis reports (high priority)
+    match /crisis_reports/{reportId} {
+      // System can create, admins can read/update
+      allow read, update: if isAdmin();
+      allow create: if isAuthenticated(); // System creates these
+    }
+    
+    // User preferences and settings
+    match /user_preferences/{userId} {
+      allow read, write: if isOwner(userId) && isNotBlocked();
+    }
+    
+    // Notifications
+    match /notifications/{notificationId} {
+      allow read: if isAuthenticated() && isNotBlocked() &&
+        resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && isNotBlocked() &&
+        resource.data.userId == request.auth.uid;
+      allow create: if isAdmin() || isCounsellor();
+    }
+  }
+}

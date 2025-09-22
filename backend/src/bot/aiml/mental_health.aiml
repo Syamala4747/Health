@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    <!-- Depression related patterns -->
+    <category>
+        <pattern>I FEEL DEPRESSED</pattern>
+        <template>I'm sorry to hear you're feeling depressed. It takes courage to reach out. Would you like to take a depression assessment to better understand how you're feeling, or would you prefer to talk about what's been troubling you?</template>
+    </category>
+    
+    <category>
+        <pattern>I AM SAD</pattern>
+        <template>I understand you're feeling sad right now. Sadness is a natural emotion, but if it's persistent, it's important to address it. Can you tell me more about what's making you feel this way?</template>
+    </category>
+    
+    <category>
+        <pattern>I FEEL HOPELESS</pattern>
+        <template>Feeling hopeless can be overwhelming, but please know that these feelings can change with the right support. You've taken a positive step by reaching out. Would you like to connect with one of our professional counselors?</template>
+    </category>
+    
+    <!-- Anxiety related patterns -->
+    <category>
+        <pattern>I FEEL ANXIOUS</pattern>
+        <template>Anxiety can be really challenging to deal with. Let's work through this together. Would you like to try some breathing exercises, take an anxiety assessment, or talk about what's causing your anxiety?</template>
+    </category>
+    
+    <category>
+        <pattern>I AM WORRIED</pattern>
+        <template>It's natural to worry sometimes, but when worry becomes overwhelming, it can affect your daily life. What specific things are you worried about? Sometimes talking through our concerns can help.</template>
+    </category>
+    
+    <category>
+        <pattern>I CANNOT SLEEP</pattern>
+        <template>Sleep problems are often connected to stress and anxiety. Here are some tips that might help: maintain a regular sleep schedule, avoid screens before bed, and try relaxation techniques. Would you like me to guide you through a relaxation exercise?</template>
+    </category>
+    
+    <!-- Stress related patterns -->
+    <category>
+        <pattern>I AM STRESSED</pattern>
+        <template>Stress is a common experience, especially for students. Let's work on some strategies to help you manage it. What's been causing you the most stress lately?</template>
+    </category>
+    
+    <category>
+        <pattern>I FEEL OVERWHELMED</pattern>
+        <template>Feeling overwhelmed is a sign that you might be taking on too much. Let's break things down into smaller, manageable pieces. What's the most pressing thing you're dealing with right now?</template>
+    </category>
+    
+    <!-- Positive coping patterns -->
+    <category>
+        <pattern>HOW CAN I FEEL BETTER</pattern>
+        <template>There are many ways to improve your mental wellbeing. Some effective strategies include: regular exercise, connecting with friends, practicing mindfulness, maintaining a routine, and seeking professional help when needed. Which of these resonates with you?</template>
+    </category>
+    
+    <category>
+        <pattern>WHAT SHOULD I DO</pattern>
+        <template>That depends on what you're going through. I can help you with mental health assessments, connect you with counselors, provide coping strategies, or just listen. What feels most helpful to you right now?</template>
+    </category>
+    
+    <!-- Assessment related patterns -->
+    <category>
+        <pattern>TAKE ASSESSMENT</pattern>
+        <template>I can help you with mental health assessments. We have two main assessments available: PHQ-9 for depression screening and GAD-7 for anxiety screening. Which one would you like to take?</template>
+    </category>
+    
+    <category>
+        <pattern>PHQ 9</pattern>
+        <template>The PHQ-9 is a depression screening tool that can help us understand how you've been feeling over the past two weeks. It takes about 5 minutes to complete. Would you like to start the PHQ-9 assessment now?</template>
+    </category>
+    
+    <category>
+        <pattern>GAD 7</pattern>
+        <template>The GAD-7 is an anxiety screening tool that helps assess anxiety symptoms over the past two weeks. It's quick and can provide valuable insights. Would you like to start the GAD-7 assessment now?</template>
+    </category>
+    
+    <!-- Crisis patterns -->
+    <category>
+        <pattern>I WANT TO HURT MYSELF</pattern>
+        <template>I'm very concerned about what you've shared. Your safety is the most important thing right now. Please reach out to a crisis helpline immediately: National Suicide Prevention Lifeline: 988. You can also text HOME to 741741 for the Crisis Text Line. Would you like me to connect you with emergency resources?</template>
+    </category>
+    
+    <category>
+        <pattern>I WANT TO DIE</pattern>
+        <template>I'm deeply concerned about you. These feelings are serious, and you deserve immediate support. Please contact emergency services (911) or the National Suicide Prevention Lifeline (988) right away. You are not alone, and help is available. Can I help you find immediate crisis resources?</template>
+    </category>
+    
+    <!-- Encouragement patterns -->
+    <category>
+        <pattern>I AM TRYING</pattern>
+        <template>I'm proud of you for trying. Taking steps to improve your mental health, even small ones, shows real strength and courage. Every effort you make matters, and I'm here to support you along the way.</template>
+    </category>
+    
+    <category>
+        <pattern>THIS IS HARD</pattern>
+        <template>You're absolutely right - dealing with mental health challenges is hard. It's okay to acknowledge that. The fact that you're here, talking about it, shows incredible strength. You don't have to face this alone.</template>
+    </category>
+
+</aiml>

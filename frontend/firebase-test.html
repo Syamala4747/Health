@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Connection Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        .test-result { 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 5px; 
+        }
+        .success { 
+            background-color: #d4edda; 
+            border: 1px solid #c3e6cb; 
+            color: #155724; 
+        }
+        .error { 
+            background-color: #f8d7da; 
+            border: 1px solid #f5c6cb; 
+            color: #721c24; 
+        }
+        .info { 
+            background-color: #d1ecf1; 
+            border: 1px solid #bee5eb; 
+            color: #0c5460; 
+        }
+        button { 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin: 5px; 
+        }
+        button:hover { 
+            background-color: #0056b3; 
+        }
+        pre { 
+            background-color: #f8f9fa; 
+            padding: 10px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Firebase Connection Diagnostic Tool</h1>
+    
+    <div class="info">
+        <h3>What this tool does:</h3>
+        <p>This tool tests your network connectivity to Firebase services and helps diagnose authentication issues.</p>
+    </div>
+
+    <button onclick="runNetworkTests()">Test Network Connectivity</button>
+    <button onclick="testFirebaseConfig()">Test Firebase Config</button>
+    <button onclick="createTestUser()">Create Test Admin User</button>
+    
+    <div id="results"></div>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
+        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'
+
+        // Your Firebase config (from .env)
+        const firebaseConfig = {
+            apiKey: "AIzaSyCDkFNc3NW8UIKKT2bpN2mfKovgdXb84YM",
+            authDomain: "health-436cf.firebaseapp.com",
+            projectId: "health-436cf",
+            storageBucket: "health-436cf.firebasestorage.app",
+            messagingSenderId: "310125092662",
+            appId: "1:310125092662:web:bcf1468916c1a4fad89d97"
+        }
+
+        let app, auth, db;
+        let resultsDiv;
+
+        try {
+            app = initializeApp(firebaseConfig)
+            auth = getAuth(app)
+            db = getFirestore(app)
+            
+            window.addEventListener('DOMContentLoaded', () => {
+                resultsDiv = document.getElementById('results')
+                addResult('✅ Firebase SDK loaded successfully', 'success')
+                addResult(`📱 Project ID: ${firebaseConfig.projectId}`, 'info')
+            })
+        } catch (error) {
+            window.addEventListener('DOMContentLoaded', () => {
+                resultsDiv = document.getElementById('results')
+                addResult(`❌ Firebase initialization failed: ${error.message}`, 'error')
+            })
+        }
+
+        function addResult(message, type = 'info') {
+            if (!resultsDiv) return
+            const div = document.createElement('div')
+            div.className = `test-result ${type}`
+            div.innerHTML = message
+            resultsDiv.appendChild(div)
+        }
+
+        window.runNetworkTests = async function() {
+            addResult('🔍 Starting network connectivity tests...', 'info')
+            
+            // Test 1: Basic internet connectivity
+            try {
+                const response = await fetch('https://www.google.com', { method: 'HEAD', mode: 'no-cors' })
+                addResult('✅ Internet connection: Working', 'success')
+            } catch (error) {
+                addResult('❌ Internet connection: Failed', 'error')
+                return
+            }
+
+            // Test 2: Firebase Auth domain
+            try {
+                const response = await fetch(`https://${firebaseConfig.authDomain}`, { method: 'HEAD', mode: 'no-cors' })
+                addResult('✅ Firebase Auth domain: Accessible', 'success')
+            } catch (error) {
+                addResult(`❌ Firebase Auth domain: Not accessible (${error.message})`, 'error')
+            }
+
+            // Test 3: Firebase APIs
+            try {
+                const response = await fetch('https://firebase.googleapis.com', { method: 'HEAD', mode: 'no-cors' })
+                addResult('✅ Firebase APIs: Accessible', 'success')
+            } catch (error) {
+                addResult(`❌ Firebase APIs: Not accessible (${error.message})`, 'error')
+            }
+
+            // Test 4: Firestore
+            try {
+                const response = await fetch(`https://firestore.googleapis.com/v1/projects/${firebaseConfig.projectId}/databases/(default)/documents`, 
+                    { method: 'HEAD', mode: 'no-cors' })
+                addResult('✅ Firestore: Accessible', 'success')
+            } catch (error) {
+                addResult(`❌ Firestore: Not accessible (${error.message})`, 'error')
+            }
+
+            addResult('📊 Network test completed. If you see errors above, try:', 'info')
+            addResult('• Disable VPN/Proxy', 'info')
+            addResult('• Try different network (mobile hotspot)', 'info')
+            addResult('• Check firewall settings', 'info')
+            addResult('• Contact network administrator', 'info')
+        }
+
+        window.testFirebaseConfig = function() {
+            addResult('🔧 Testing Firebase configuration...', 'info')
+            
+            const requiredFields = ['apiKey', 'authDomain', 'projectId', 'appId']
+            const missing = requiredFields.filter(field => !firebaseConfig[field])
+            
+            if (missing.length > 0) {
+                addResult(`❌ Missing config fields: ${missing.join(', ')}`, 'error')
+            } else {
+                addResult('✅ All required config fields present', 'success')
+            }
+            
+            addResult(`📋 Configuration details:`, 'info')
+            addResult(`<pre>${JSON.stringify(firebaseConfig, null, 2)}</pre>`, 'info')
+        }
+
+        window.createTestUser = async function() {
+            addResult('👤 Creating test admin user...', 'info')
+            
+            const adminEmail = 'admin@zencare.app'
+            const adminPassword = 'ZenCare2024!'
+            
+            try {
+                // First try to sign in (user might already exist)
+                try {
+                    const signInResult = await signInWithEmailAndPassword(auth, adminEmail, adminPassword)
+                    addResult('✅ Admin user already exists and login successful!', 'success')
+                    addResult(`User UID: ${signInResult.user.uid}`, 'info')
+                    
+                    // Create user document in Firestore
+                    const adminData = {
+                        uid: signInResult.user.uid,
+                        email: adminEmail,
+                        name: 'ZenCare Administrator',
+                        role: 'admin',
+                        approved: true,
+                        blocked: false,
+                        isActive: true,
+                        profileCompleted: true,
+                        permissions: ['all'],
+                        createdAt: new Date(),
+                        updatedAt: new Date()
+                    }
+                    
+                    await setDoc(doc(db, 'users', signInResult.user.uid), adminData)
+                    addResult('✅ Admin user document created in Firestore', 'success')
+                    
+                } catch (signInError) {
+                    if (signInError.code === 'auth/user-not-found') {
+                        // User doesn't exist, create it
+                        addResult('👤 User not found, creating new admin user...', 'info')
+                        
+                        const createResult = await createUserWithEmailAndPassword(auth, adminEmail, adminPassword)
+                        addResult('✅ Admin user created successfully!', 'success')
+                        addResult(`New User UID: ${createResult.user.uid}`, 'info')
+                        
+                        // Create user document in Firestore
+                        const adminData = {
+                            uid: createResult.user.uid,
+                            email: adminEmail,
+                            name: 'ZenCare Administrator',
+                            role: 'admin',
+                            approved: true,
+                            blocked: false,
+                            isActive: true,
+                            profileCompleted: true,
+                            permissions: ['all'],
+                            createdAt: new Date(),
+                            updatedAt: new Date()
+                        }
+                        
+                        await setDoc(doc(db, 'users', createResult.user.uid), adminData)
+                        addResult('✅ Admin user document created in Firestore', 'success')
+                        
+                    } else {
+                        throw signInError
+                    }
+                }
+                
+                addResult(`🎉 You can now login with:`, 'success')
+                addResult(`Email: ${adminEmail}`, 'info')
+                addResult(`Password: ${adminPassword}`, 'info')
+                
+            } catch (error) {
+                addResult(`❌ Failed to create admin user: ${error.message}`, 'error')
+                
+                if (error.code === 'auth/network-request-failed') {
+                    addResult('🔧 This appears to be a network connectivity issue.', 'error')
+                    addResult('Try running the network tests first.', 'info')
+                } else if (error.code === 'auth/invalid-api-key') {
+                    addResult('🔧 Invalid API key. Check your Firebase configuration.', 'error')
+                } else if (error.code === 'auth/project-not-found') {
+                    addResult('🔧 Firebase project not found. Verify your project ID.', 'error')
+                }
+            }
+        }
+    </script>
+</body>
+</html>

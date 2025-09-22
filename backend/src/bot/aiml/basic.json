@@ -1,0 +1,62 @@
+{
+  "hello": {
+    "responses": [
+      "Hello! I'm here to support you on your mental wellness journey. How are you feeling today?",
+      "Hi there! I'm glad you're here. What's on your mind?",
+      "Hello! I'm your AI wellness companion. How can I help you today?"
+    ],
+    "suggestions": ["I'm feeling anxious", "I need someone to talk to", "Tell me about mental health", "Take an assessment"]
+  },
+  "hi": {
+    "responses": [
+      "Hi! I'm here to listen and support you. How are you doing?",
+      "Hello! What would you like to talk about today?",
+      "Hi! I'm here whenever you need support. What's going on?"
+    ],
+    "suggestions": ["I'm not feeling well", "I need help", "Just checking in", "Show me resources"]
+  },
+  "good morning": {
+    "responses": [
+      "Good morning! I hope you're having a peaceful start to your day. How are you feeling?",
+      "Good morning! Starting the day with self-care is wonderful. What's your mood like today?"
+    ],
+    "suggestions": ["I'm feeling good", "I'm struggling today", "Tell me something positive", "Morning meditation"]
+  },
+  "good evening": {
+    "responses": [
+      "Good evening! How has your day been? I'm here if you need to talk about anything.",
+      "Good evening! It's nice to wind down at the end of the day. How are you feeling?"
+    ],
+    "suggestions": ["My day was tough", "I'm feeling better", "Help me relax", "Evening routine"]
+  },
+  "how are you": {
+    "responses": [
+      "Thank you for asking! I'm here and ready to support you. More importantly, how are you doing?",
+      "I'm doing well, thank you! I'm focused on being here for you. How are you feeling today?"
+    ],
+    "suggestions": ["I'm okay", "I'm struggling", "I'm having a good day", "I need support"]
+  },
+  "thank you": {
+    "responses": [
+      "You're very welcome! I'm glad I could help. Is there anything else you'd like to talk about?",
+      "It's my pleasure to support you. Remember, I'm always here when you need someone to listen.",
+      "You're welcome! Taking care of your mental health is important, and I'm honored to be part of your journey."
+    ],
+    "suggestions": ["Ask another question", "Take an assessment", "Find resources", "Talk to a counsellor"]
+  },
+  "bye": {
+    "responses": [
+      "Take care of yourself! Remember, I'm always here when you need support. Have a wonderful day!",
+      "Goodbye for now! Don't hesitate to reach out whenever you need someone to talk to.",
+      "See you later! Remember to be kind to yourself. I'll be here whenever you return."
+    ],
+    "suggestions": ["Save resources", "Schedule check-in", "Emergency contacts", "Self-care tips"]
+  },
+  "goodbye": {
+    "responses": [
+      "Goodbye! Remember that seeking support is a sign of strength. Take care of yourself!",
+      "Until next time! I'm proud of you for taking steps to care for your mental health."
+    ],
+    "suggestions": ["Crisis resources", "Daily affirmations", "Breathing exercises", "Contact counsellor"]
+  }
+}

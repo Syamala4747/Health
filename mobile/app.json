@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Student Wellness",
+    "slug": "student-wellness-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "sdkVersion": "54.0.0",
+    "entryPoint": "./App.js",
+    "platforms": ["ios", "android"],
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#E6E6FA"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wellness.studentapp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6E6FA"
+      },
+      "package": "com.wellness.studentapp"
+    }
+  }
+}

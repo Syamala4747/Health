@@ -1,0 +1,168 @@
+{
+  "name": "PHQ-9 Depression Assessment",
+  "description": "Patient Health Questionnaire-9 for depression screening",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Over the last 2 weeks, how often have you been bothered by little interest or pleasure in doing things?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Over the last 2 weeks, how often have you been bothered by feeling down, depressed, or hopeless?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Over the last 2 weeks, how often have you been bothered by trouble falling or staying asleep, or sleeping too much?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Over the last 2 weeks, how often have you been bothered by feeling tired or having little energy?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Over the last 2 weeks, how often have you been bothered by poor appetite or overeating?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Over the last 2 weeks, how often have you been bothered by feeling bad about yourself or that you are a failure or have let yourself or your family down?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Over the last 2 weeks, how often have you been bothered by trouble concentrating on things, such as reading the newspaper or watching television?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Over the last 2 weeks, how often have you been bothered by moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "Over the last 2 weeks, how often have you been bothered by thoughts that you would be better off dead, or of hurting yourself?",
+      "options": [
+        { "value": 0, "text": "Not at all" },
+        { "value": 1, "text": "Several days" },
+        { "value": 2, "text": "More than half the days" },
+        { "value": 3, "text": "Nearly every day" }
+      ]
+    }
+  ],
+  "scoring": {
+    "ranges": [
+      {
+        "min": 0,
+        "max": 4,
+        "severity": "Minimal",
+        "description": "Minimal depression symptoms",
+        "recommendations": [
+          "Continue with regular self-care practices",
+          "Maintain healthy lifestyle habits",
+          "Consider mindfulness or relaxation techniques"
+        ]
+      },
+      {
+        "min": 5,
+        "max": 9,
+        "severity": "Mild",
+        "description": "Mild depression symptoms",
+        "recommendations": [
+          "Consider talking to a counselor or therapist",
+          "Engage in regular physical activity",
+          "Practice stress management techniques",
+          "Maintain social connections"
+        ]
+      },
+      {
+        "min": 10,
+        "max": 14,
+        "severity": "Moderate",
+        "description": "Moderate depression symptoms",
+        "recommendations": [
+          "Strongly consider professional counseling",
+          "Book a session with one of our counselors",
+          "Consider therapy or medication consultation",
+          "Develop a structured daily routine"
+        ]
+      },
+      {
+        "min": 15,
+        "max": 19,
+        "severity": "Moderately Severe",
+        "description": "Moderately severe depression symptoms",
+        "recommendations": [
+          "Seek professional help immediately",
+          "Consider medication evaluation",
+          "Book urgent counseling session",
+          "Inform trusted friends or family members"
+        ]
+      },
+      {
+        "min": 20,
+        "max": 27,
+        "severity": "Severe",
+        "description": "Severe depression symptoms",
+        "recommendations": [
+          "Seek immediate professional help",
+          "Contact emergency services if having thoughts of self-harm",
+          "Consider intensive therapy or hospitalization",
+          "Do not delay in getting professional support"
+        ]
+      }
+    ]
+  },
+  "crisisKeywords": [
+    "hurt myself",
+    "kill myself",
+    "suicide",
+    "end it all",
+    "better off dead",
+    "no point living"
+  ]
+}

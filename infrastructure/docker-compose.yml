@@ -1,0 +1,125 @@
+version: '3.8'
+
+services:
+  # Backend API Server
+  server:
+    build:
+      context: ./packages/server
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_API_KEY=${FIREBASE_API_KEY}
+      - FIREBASE_AUTH_DOMAIN=${FIREBASE_AUTH_DOMAIN}
+      - FIREBASE_STORAGE_BUCKET=${FIREBASE_STORAGE_BUCKET}
+      - ML_SERVICE_URL=http://ml:5000
+      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY}
+    volumes:
+      - ./packages/server:/app
+      - /app/node_modules
+    depends_on:
+      - ml
+    networks:
+      - wellness-network
+    restart: unless-stopped
+
+  # ML Service
+  ml:
+    build:
+      context: ./packages/ml
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - PORT=5000
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./packages/ml:/app
+    networks:
+      - wellness-network
+    restart: unless-stopped
+
+  # Admin Web App
+  web:
+    build:
+      context: ./packages/web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_BASE_URL=http://localhost:3001/api
+      - REACT_APP_FIREBASE_API_KEY=${FIREBASE_API_KEY}
+      - REACT_APP_FIREBASE_AUTH_DOMAIN=${FIREBASE_AUTH_DOMAIN}
+      - REACT_APP_FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+    volumes:
+      - ./packages/web:/app
+      - /app/node_modules
+    depends_on:
+      - server
+    networks:
+      - wellness-network
+    restart: unless-stopped
+
+  # Optional: MongoDB (if switching from Firebase)
+  mongodb:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=student_wellness
+    volumes:
+      - mongodb_data:/data/db
+      - ./scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - wellness-network
+    restart: unless-stopped
+    profiles:
+      - mongodb
+
+  # Optional: Redis (for caching and sessions)
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - wellness-network
+    restart: unless-stopped
+    profiles:
+      - cache
+
+  # Optional: Firebase Emulator Suite (for development)
+  firebase-emulator:
+    image: node:18-alpine
+    working_dir: /app
+    command: >
+      sh -c "
+        npm install -g firebase-tools &&
+        firebase emulators:start --only firestore,auth --project demo-project
+      "
+    ports:
+      - "9099:9099"  # Auth Emulator
+      - "8080:8080"  # Firestore Emulator
+      - "4000:4000"  # Emulator Suite UI
+    volumes:
+      - ./firebase.json:/app/firebase.json:ro
+      - ./firestore.rules:/app/firestore.rules:ro
+    networks:
+      - wellness-network
+    profiles:
+      - emulator
+
+networks:
+  wellness-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  redis_data:

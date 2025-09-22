@@ -1,0 +1,119 @@
+{
+  "app": {
+    "name": "ZenCare",
+    "welcome": "Welcome to ZenCare",
+    "subtitle": "Your mental wellness companion"
+  },
+  "dashboard": {
+    "yourWellnessJourney": "Your Wellness Journey",
+    "knowYourHealth": "Know Your Health",
+    "takeAssessments": "Take mental health assessments",
+    "aiCounsellor": "AI Counsellor",
+    "chatWithAI": "Chat with our AI wellness companion",
+    "humanCounsellor": "Human Counsellor",
+    "connectProfessional": "Connect with professional counsellors",
+    "resourceHub": "Resource Hub",
+    "articlesVideos": "Articles, videos, and wellness tools"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "forgotPassword": "Forgot Password?",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "student": "Student",
+    "counsellor": "Counsellor",
+    "selectRole": "Select your role"
+  },
+  "emergency": {
+    "needHelp": "Need Immediate Help?",
+    "crisisResources": "Crisis Resources",
+    "emergencyContacts": "Emergency Contacts",
+    "nationalSuicideHotline": "National Suicide Prevention Lifeline",
+    "crisisTextLine": "Crisis Text Line",
+    "emergencyServices": "Emergency Services"
+  },
+  "stats": {
+    "daysActive": "Days Active",
+    "wellnessScore": "Wellness Score",
+    "sessionsCompleted": "Sessions Completed",
+    "assessmentsTaken": "Assessments Taken"
+  },
+  "assessment": {
+    "phq9": "PHQ-9 Depression Assessment",
+    "gad7": "GAD-7 Anxiety Assessment",
+    "startAssessment": "Start Assessment",
+    "question": "Question {{number}} of {{total}}",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "results": "Your Results",
+    "score": "Score: {{score}}/{{total}}",
+    "severity": "Severity: {{level}}",
+    "recommendations": "Recommendations"
+  },
+  "chat": {
+    "typeMessage": "Type a message...",
+    "send": "Send",
+    "aiTyping": "AI is typing...",
+    "reportIssue": "Report Issue",
+    "endSession": "End Session"
+  },
+  "sessions": {
+    "mySessions": "My Sessions",
+    "upcomingSessions": "Upcoming Sessions",
+    "pastSessions": "Past Sessions",
+    "bookSession": "Book New Session",
+    "joinSession": "Join Session",
+    "sessionWith": "Session with {{name}}",
+    "duration": "Duration: {{minutes}} minutes",
+    "status": "Status: {{status}}"
+  },
+  "profile": {
+    "myProfile": "My Profile",
+    "personalInfo": "Personal Information",
+    "preferences": "Preferences",
+    "language": "Language",
+    "notifications": "Notifications",
+    "privacy": "Privacy Settings",
+    "deleteAccount": "Delete Account",
+    "logout": "Logout"
+  },
+  "resources": {
+    "resourceHub": "Resource Hub",
+    "articles": "Articles",
+    "videos": "Videos",
+    "games": "Wellness Games",
+    "downloads": "Downloads",
+    "categories": {
+      "anxiety": "Anxiety",
+      "depression": "Depression",
+      "stress": "Stress Management",
+      "mindfulness": "Mindfulness",
+      "relationships": "Relationships",
+      "sleep": "Sleep Health"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "refresh": "Refresh"
+  }
+}

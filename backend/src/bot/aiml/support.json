@@ -1,0 +1,94 @@
+{
+  "help": {
+    "responses": [
+      "I'm here to help you in whatever way I can. You can talk to me about your feelings, take mental health assessments, or I can connect you with professional support.",
+      "Of course I'll help! I can listen to your concerns, guide you through wellness assessments, or help you find resources and professional support.",
+      "I'm glad you're reaching out for help. That takes courage. What kind of support are you looking for today?"
+    ],
+    "suggestions": ["Take an assessment", "Talk about feelings", "Find a counsellor", "Crisis resources"]
+  },
+  "i need help": {
+    "responses": [
+      "I'm here for you. Asking for help is a sign of strength, not weakness. What's been going on that's making you feel like you need support?",
+      "Thank you for trusting me with this. I want to help you. Can you tell me more about what you're experiencing right now?"
+    ],
+    "suggestions": ["Share my situation", "Emergency support", "Professional help", "Immediate coping"]
+  },
+  "support": {
+    "responses": [
+      "You deserve support, and I'm honored to be here for you. Everyone needs support sometimes, and seeking it shows wisdom and self-care.",
+      "I'm here to provide support in whatever way I can. Whether you need someone to listen, resources, or professional connections, I'm here for you."
+    ],
+    "suggestions": ["Emotional support", "Find resources", "Connect with counsellor", "Peer support"]
+  },
+  "listen": {
+    "responses": [
+      "I'm here to listen without judgment. Take your time and share whatever feels important to you right now.",
+      "I'm listening with my full attention. Your thoughts and feelings matter, and this is a safe space to express them."
+    ],
+    "suggestions": ["Share my story", "Talk about today", "Express feelings", "Ask questions"]
+  },
+  "talk": {
+    "responses": [
+      "I'm here to talk with you about whatever is on your mind. What would you like to discuss?",
+      "Talking can be really helpful. I'm here to listen and support you. What's been on your heart lately?"
+    ],
+    "suggestions": ["My day", "My feelings", "My worries", "My goals"]
+  },
+  "crisis": {
+    "responses": [
+      "If you're in crisis, please know that immediate help is available. You can call 988 for the Suicide & Crisis Lifeline or text HOME to 741741 for the Crisis Text Line.",
+      "Crisis situations require immediate professional support. Please reach out to emergency services or a crisis hotline right away. You don't have to face this alone."
+    ],
+    "suggestions": ["Call 988", "Text 741741", "Emergency services", "Talk to counsellor now"]
+  },
+  "emergency": {
+    "responses": [
+      "If this is a mental health emergency, please call 911 or go to your nearest emergency room immediately. Your safety is the most important thing.",
+      "In an emergency, don't hesitate to call for immediate help. Crisis counselors are available 24/7 at 988, or you can call 911 if you're in immediate danger."
+    ],
+    "suggestions": ["Call 911", "Go to ER", "Call 988", "Contact trusted person"]
+  },
+  "suicide": {
+    "responses": [
+      "I'm very concerned about you. If you're having thoughts of suicide, please reach out for immediate help. Call 988 (Suicide & Crisis Lifeline) right now - they're available 24/7.",
+      "Your life has value and meaning. Please don't face these thoughts alone. The National Suicide Prevention Lifeline (988) has trained counselors ready to help you right now."
+    ],
+    "suggestions": ["Call 988 now", "Go to emergency room", "Call trusted person", "Stay safe"]
+  },
+  "assessment": {
+    "responses": [
+      "Mental health assessments can help you understand your current wellbeing and identify areas where you might benefit from support. I can guide you through validated assessments.",
+      "I can help you take evidence-based mental health assessments like the PHQ-9 for depression or GAD-7 for anxiety. These can provide insights into your mental health."
+    ],
+    "suggestions": ["PHQ-9 (Depression)", "GAD-7 (Anxiety)", "Learn about assessments", "Talk to professional"]
+  },
+  "counsellor": {
+    "responses": [
+      "Connecting with a professional counsellor can be incredibly helpful. I can help you find qualified counsellors who specialize in areas that match your needs.",
+      "Professional counsellors have specialized training to help with mental health concerns. Would you like me to help you find a counsellor or learn about what to expect?"
+    ],
+    "suggestions": ["Find a counsellor", "Book appointment", "Learn about therapy", "Types of therapy"]
+  },
+  "therapy": {
+    "responses": [
+      "Therapy can be a powerful tool for healing and growth. Many people find it helpful to have a safe space to explore their thoughts and feelings with a trained professional.",
+      "There are many different types of therapy, and finding the right fit is important. Would you like to learn about different approaches or find a therapist?"
+    ],
+    "suggestions": ["Types of therapy", "Find therapist", "What to expect", "Benefits of therapy"]
+  },
+  "medication": {
+    "responses": [
+      "Medication can be an important part of mental health treatment for some people. This is something to discuss with a healthcare provider who can assess your specific situation.",
+      "Questions about medication are best addressed by qualified healthcare professionals who can consider your individual needs and medical history."
+    ],
+    "suggestions": ["Talk to doctor", "Find psychiatrist", "Learn about options", "Medication + therapy"]
+  },
+  "resources": {
+    "responses": [
+      "I have access to many mental health resources including articles, videos, self-help tools, and crisis support information. What type of resources would be most helpful for you?",
+      "There are many helpful resources available for mental health support. I can help you find articles, videos, apps, or connect you with professional services."
+    ],
+    "suggestions": ["Self-help articles", "Guided meditations", "Crisis resources", "Professional services"]
+  }
+}
